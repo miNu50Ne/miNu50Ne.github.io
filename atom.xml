@@ -10,11 +10,12 @@
   <rights>All rights reserved 2026, minu50ne</rights>
   <subtitle>绝不调</subtitle>
   <title>Hexo</title>
-  <updated>2026-03-25T13:27:29.264Z</updated>
+  <updated>2026-03-29T14:52:22.952Z</updated>
   <entry>
     <author>
       <name>minu50ne</name>
     </author>
+    <category term="文档" scheme="https://minu50ne.github.io/categories/%E6%96%87%E6%A1%A3/"/>
     <content>
       <![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="正运动学解算"><a href="#正运动学解算" class="headerlink" title="正运动学解算"></a>正运动学解算</h1><h1 id="逆运动学解算"><a href="#逆运动学解算" class="headerlink" title="逆运动学解算"></a>逆运动学解算</h1>]]>
     </content>
@@ -25,6 +26,6 @@
       <![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="正运动学解算"><a href="#正运动学解算" class="headerlink" title="正运动学解算"></a>正]]>
     </summary>
     <title>舵轮底盘解算</title>
-    <updated>2026-03-25T13:27:29.264Z</updated>
+    <updated>2026-03-29T14:52:22.952Z</updated>
   </entry>
 </feed>
