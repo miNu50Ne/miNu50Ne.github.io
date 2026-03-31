@@ -7418,9 +7418,9 @@ pre {
 }
 #l_main .post,
 #l_side .widget {
-  opacity: 0.8;
-  -webkit-opacity: 0.8;
-  -moz-opacity: 0.8;
+  opacity: 0.85;
+  -webkit-opacity: 0.85;
+  -moz-opacity: 0.85;
 }
 .l_main {
   background: transparent !important;
@@ -7432,7 +7432,7 @@ pre {
   -moz-opacity: 1;
 }
 .parallax-mirror {
-  filter: brightness(0.5);
+  filter: brightness(0.7);
 /* ===== 搜索框整体宽度 ===== */
 }
 .l_header .search-box {
