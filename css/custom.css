@@ -1,0 +1,14 @@
+/* 在 themes/volantis/source/css/custom.css 添加 */
+.l_cover .title {
+    font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial;
+    font-size: 120px;
+    /* 根据需要调 */
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.l_cover .subtitle {
+    font-family: "UbuntuMono", "PingFang SC", "Microsoft YaHei", Helvetica, Arial;
+    font-size: 22px;
+    color: rgba(255, 255, 255, 0.8);
+}

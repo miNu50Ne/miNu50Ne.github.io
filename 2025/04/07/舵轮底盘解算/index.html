@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/#7.0.0-alpha.0'>
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/#7.0.0-alpha.0'>
   <meta name="generator" content="Hexo 7.3.0">
   <meta name="Volantis" content="7.0.0-alpha.0">
   <meta charset="utf-8">
@@ -109,7 +109,7 @@ html {
   width: 100%;
   height: 100%;
   font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
-  font-size: 16px;
+  font-size: 30px;
 }
 html >::-webkit-scrollbar {
   height: 4px;
@@ -525,7 +525,7 @@ button {
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 .cover-wrapper .cover-body .subtitle {
-  font-size: 20px;
+  font-size: 37.5px;
 }
 .cover-wrapper .cover-body .logo {
   max-height: 120px;
@@ -785,53 +785,34 @@ button {
 .cover-wrapper.focus .menu .list-h a:hover {
   background: var(--color-card);
 }
-.cover-wrapper.dock .top {
-  margin-bottom: 48px;
+.cover-wrapper.focus .menu {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
 }
-.cover-wrapper.dock .menu {
+.cover-wrapper.focus .menu .list-h {
+  margin: 2px;
+}
+.cover-wrapper.focus .menu:hover {
   background: rgba(255,255,255,0.5);
-  position: absolute;
-  bottom: 0;
-  max-width: 100%;
-}
-.cover-wrapper.dock .menu .list-h {
-  flex-wrap: nowrap;
-  -webkit-flex-wrap: nowrap;
-  -khtml-flex-wrap: nowrap;
-  -moz-flex-wrap: nowrap;
-  -o-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  margin: 4px;
-}
-.cover-wrapper.dock .menu .list-h a+a {
-  margin-left: 4px;
-}
-@media screen and (max-width: 500px) {
-  .cover-wrapper.dock .menu .list-h {
-    overflow-x: scroll;
-  }
-  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar {
-    height: 0;
-    width: 0;
-  }
-  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-track-piece {
-    background: transparent;
-  }
-  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb {
-    background: #3dd9b6;
-    cursor: pointer;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-  }
-  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb:hover {
-    background: #ff5722;
-  }
 }
 @supports (backdrop-filter: blur(20px)) {
-  .cover-wrapper.dock .menu {
+  .cover-wrapper.focus .menu:hover {
     background: rgba(255,255,255,0.5);
     backdrop-filter: saturate(200%) blur(20px);
   }
+}
+.cover-wrapper.focus .menu .list-h a {
+  margin: 2px;
+}
+.cover-wrapper.focus .menu .list-h a:hover {
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  background: var(--color-card);
 }
 @font-face {
   font-family: 'UbuntuMono';
@@ -2113,7 +2094,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1660614606622/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1774866524215),
+    lastupdate: new Date(1774939174289),
     cdn: {
       izitoast_css: 'https://unpkg.com/izitoast@1.4.0/dist/css/iziToast.min.css',
       izitoast_js: 'https://unpkg.com/izitoast@1.4.0/dist/js/iziToast.min.js',
@@ -2164,283 +2145,529 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <!-- Custom Files headEnd end-->
 </head>
-  <body itemscope itemtype="http://schema.org/WebPage">
-    <!-- import body_begin begin-->
-    <!-- import body_begin end-->
-    <!-- Custom Files bodyBegin begin-->
-    
-    <!-- Custom Files bodyBegin end-->
-    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur " style='opacity: 0' >
+    <script>
+    function music_on() {
+        var audio1 = document.getElementById('bg_music');
+        if (audio1.paused) {
+            audio1.play();
+        } else {
+            audio1.pause();
+            audio1.currentTime = 0;//音乐从头播放
+        }
+    }
+    function BackTOP() {
+        $("#btn").hide();
+        $(function () {
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 50) {
+                    $("#btn").fadeIn(200);
+                } else {
+                    $("#btn").fadeOut(200);
+                }
+            });
+            $("#btn").click(function () {
+                $('body,html').animate({
+                    scrollTop: 0
+                },
+                    500);
+                return false;
+            });
+        });
+        $(function () {
+            $("#say").click(function () {
+                $('body,html').animate({
+                    scrollTop: $('html, body').get(0).scrollHeight
+                },
+                    500);
+                return false;
+            });
+        })
+    }
+
+    $('#readmode').click(function () {
+        $('body').toggleClass('read-mode')
+    })
+
+    function SiderMenu() {
+        $('#main-container').toggleClass('open');
+        $('.iconflat').css('width', '50px').css('height', '50px');
+        $('.openNav').css('height', '50px');
+        $('#main-container,#mo-nav,.openNav').toggleClass('open')
+    }
+
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($("body")), setTimeout(
+            function () {
+                var DarkMode = document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") ||
+                    '0';
+                (volantis.dark.mode == "dark")
+                    ?
+                    ($("html").addClass("DarkMode"),
+                        document.cookie = "DarkMode=1;path=/",
+                        $('#modeicon').attr("xlink:href", "#icon-sun"))
+                    :
+                    ($("html").removeClass("DarkMode"),
+                        document.cookie = "DarkMode=0;path=/",
+                        $('#modeicon').attr("xlink:href", "#icon-_moon")),
+                    setTimeout(function () {
+                        $(".Cuteen_DarkSky").fadeOut(1e3, function () {
+                            $(this).remove()
+                        })
+                    }, 2e3)
+            }), 50
+    }
+
+    function checkNightMode() {
+        if ($("html").hasClass("n-f")) {
+            $("html").removeClass("day");
+            $("html").addClass("DarkMode");
+            $('#modeicon').attr("xlink:href", "#icon-sun")
+            return;
+        }
+        if ($("html").hasClass("d-f")) {
+            $("html").removeClass("DarkMode");
+            $("html").addClass("day");
+            $('#modeicon').attr("xlink:href", "#icon-_moon")
+
+            return;
+        }
+        if (document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") === '') {
+            if (volantis.dark.mode == "dark") {
+                $("html").addClass("DarkMode");
+                document.cookie = "DarkMode=1;path=/";
+                console.log('夜间模式开启');
+                $('#modeicon').attr("xlink:href", "#icon-sun")
+            } else {
+                $("html").removeClass("DarkMode");
+                document.cookie = "DarkMode=0;path=/";
+                console.log('夜间模式关闭');
+                $('#modeicon').attr("xlink:href", "#icon-_moon")
+            }
+        } else {
+            var DarkMode = document.cookie.replace(/(?:(?:^|.*;\s*)DarkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
+            if (DarkMode == '0') {
+                $("html").removeClass("DarkMode");
+                $('#modeicon').attr("xlink:href", "#icon-_moon")
+            } else if (DarkMode == '1') {
+                $("html").addClass("DarkMode");
+                $('#modeicon').attr("xlink:href", "#icon-sun")
+            }
+        }
+    }
+    BackTOP();
+</script>
+
+<style>
+    #RightDownBtn {
+        position: fixed;
+        left: 1.875rem;
+        bottom: 1.875rem;
+        padding: 0.3125rem 0.625rem;
+        background: #fff;
+        border-radius: 0.1875rem;
+        transition: 0.3s ease all;
+        z-index: 1;
+        align-items: flex-end;
+        flex-direction: column;
+        display: -moz-flex;
+        display: flex;
+        float: right;
+    }
+
+    #RightDownBtn>a,
+    #RightDownBtn>label {
+        width: 1.5em;
+        height: 1.5em;
+        margin: 0.3125rem 0;
+        transition: .2s cubic-bezier(.25, .46, .45, .94);
+    }
+
+    /* font color */
+    .DarkMode #page,
+    .DarkMode #colophon,
+    .DarkMode #vcomments .vbtn,
+    .DarkMode .art-content #archives .al_mon_list .al_mon,
+    .DarkMode .art-content #archives .al_mon_list span,
+    .DarkMode body,
+    .DarkMode .art-content #archives .al_mon_list .al_mon,
+    .DarkMode .art-content #archives .al_mon_list span,
+    .DarkMode button,
+    .DarkMode .art .art-content #archives a,
+    .DarkMode textarea,
+    .DarkMode strong,
+    .DarkMode a,
+    .DarkMode p,
+    .DarkMode li,
+    .DarkMode .label {
+        color: rgba(255, 255, 255, .6);
+    }
+
+
+    .DarkMode #page,
+    .DarkMode body,
+    .DarkMode #colophon,
+    .DarkMode #main-container,
+    .DarkMode #page .yya,
+    .DarkMode #content,
+    .DarkMode #contentss,
+    .DarkMode #footer {
+        background-color: #292a2d;
+    }
+
+    .DarkMode strong,
+    .DarkMode img {
+        filter: brightness(.7);
+    }
+
+    /* sun and noon */
+    .Cuteen_DarkSky,
+    .Cuteen_DarkSky:before {
+        content: "";
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 88888888
+    }
+
+    .Cuteen_DarkSky {
+        background: linear-gradient(#feb8b0, #fef9db)
+    }
+
+    .Cuteen_DarkSky:before {
+        transition: 2s ease all;
+        opacity: 0;
+        background: linear-gradient(#4c3f6d, #6c62bb, #93b1ed)
+    }
+
+    .DarkMode .Cuteen_DarkSky:before {
+        opacity: 1
+    }
+
+    .Cuteen_DarkPlanet {
+        z-index: 99999999;
+        position: fixed;
+        left: -50%;
+        top: -50%;
+        width: 200%;
+        height: 200%;
+        -webkit-animation: CuteenPlanetMove 2s cubic-bezier(.7, 0, 0, 1);
+        animation: CuteenPlanetMove 2s cubic-bezier(.7, 0, 0, 1);
+        transform-origin: center bottom
+    }
+
+    @-webkit-keyframes CuteenPlanetMove {
+        0% {
+            transform: rotate(0)
+        }
+
+        to {
+            transform: rotate(360deg)
+        }
+    }
+
+    @keyframes CuteenPlanetMove {
+        0% {
+            transform: rotate(0)
+        }
+
+        to {
+            transform: rotate(360deg)
+        }
+    }
+
+    .Cuteen_DarkPlanet:after {
+        position: absolute;
+        left: 35%;
+        top: 40%;
+        width: 9.375rem;
+        height: 9.375rem;
+        border-radius: 50%;
+        content: "";
+        background: linear-gradient(#fefefe, #fffbe8)
+    }
+</style>
+
+      <body itemscope itemtype="http://schema.org/WebPage">
+        <!-- import body_begin begin-->
+                  <!-- import body_begin end-->
+                  <!-- Custom Files bodyBegin begin-->
+                  
+                    <!-- Custom Files bodyBegin end-->
+                    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header"
+  class="l_header auto shadow floatable blur "
+  style='opacity: 0' >
   <div class='container'>
-  <div id='wrapper'>
-    <div class='nav-sub'>
-      <p class="title"></p>
-      <ul class='switcher nav-list-h m-phone'>
-        <li><a id="s-comment" class="fa-solid fa-comments fa-fw" target="_self" title="comment"></a></li>
-        
-          <li><a id="s-toc" class="s-toc fa-solid fa-list fa-fw" target="_self" title="toc"></a></li>
-        
-      </ul>
-    </div>
-		<div class="nav-main">
-      
-        
-        <a class="title flat-box" target="_self" href='/'>
+    <div id='wrapper'>
+      <div class='nav-sub'>
+        <p class="title"></p>
+        <ul class='switcher nav-list-h m-phone'>
+          <li><a id="s-comment" class="fa-solid fa-comments fa-fw" target="_self" title="comment"></a></li>
           
-            <img no-lazy class='logo' src='https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/Logo-NavBar@3x.png'/>
-          
-          
-          
-        </a>
-      
-
-			<div class='menu navigation'>
-				<ul class='nav-list-h m-pc'>
-          
-          
-          
+            <li><a id="s-toc" class="s-toc fa-solid fa-list fa-fw" target="_self" title="toc"></a></li>
             
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/" title="文档"
-                  
-                  
-                  
-                    active-action="action-home"
-                  >
-                  <i class='fa-solid fa-rss fa-fw'></i>文档
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/categories/" title="分类"
-                  
-                  
-                  
-                    active-action="action-categories"
-                  >
-                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/tags/" title="标签"
-                  
-                  
-                  
-                    active-action="action-tags"
-                  >
-                  <i class='fa-solid fa-tags fa-fw'></i>标签
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/archives/" title="归档"
-                  
-                  
-                  
-                    active-action="action-archives"
-                  >
-                  <i class='fa-solid fa-archive fa-fw'></i>归档
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/friends/" title="友链"
-                  
-                  
-                  
-                    active-action="action-friends"
-                  >
-                  <i class='fa-solid fa-link fa-fw'></i>友链
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/about/" title="关于"
-                  
-                  
-                  
-                    active-action="action-about"
-                  >
-                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
-                </a>
-                
-              </li>
-            
-          
-          
-				</ul>
-			</div>
-      
-      <div class="m_search">
-        <form name="searchform" class="form u-search-form">
-          <i class="icon fa-solid fa-search fa-fw"></i>
-          <input type="text" class="input u-search-input" placeholder="Search..." />
-        </form>
+        </ul>
       </div>
-      
+      <div class="nav-main">
+        
+          
+            <a class="title flat-box" target="_self" href='/'>
+              
+                <img no-lazy class='logo' src='https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/Logo-NavBar@3x.png' />
+                
+                  
+                      
+            </a>
+            
 
-			<ul class='switcher nav-list-h m-phone'>
-				
-					<li><a class="s-search fa-solid fa-search fa-fw" target="_self" title="search"></a></li>
-				
-				<li>
-          <a class="s-menu fa-solid fa-bars fa-fw" target="_self" title="menu"></a>
-          <ul class="menu-phone list-v navigation white-box">
-            
+              <div class='menu navigation'>
+                <ul class='nav-list-h m-pc'>
+                  
+                    
+                                
+                                  
+                      
+                            <li>
+                              <a class="menuitem flat-box faa-parent animated-hover" href="/" title="首页" 
+                                
+                                      
+                                            
+                                              active-action="action-home"
+                                                >
+                                                  <i class='fa fa-house fa-fw'></i>
+                                                    首页
+                              </a>
+                              
+                            </li>
+                            
+                              
+                                    
+                                  
+                      
+                            <li>
+                              <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" title="分类" 
+                                
+                                      
+                                            
+                                              active-action="action-categories"
+                                                >
+                                                  <i class='fa fa-folder-open fa-fw'></i>
+                                                    分类
+                              </a>
+                              
+                            </li>
+                            
+                              
+                                    
+                                  
+                      
+                            <li>
+                              <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" title="标签" 
+                                
+                                      
+                                            
+                                              active-action="action-tags"
+                                                >
+                                                  <i class='fa-solid fa-tags fa-fw'></i>
+                                                    标签
+                              </a>
+                              
+                            </li>
+                            
+                              
+                                    
+                                  
+                      
+                            <li>
+                              <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" title="友链" 
+                                
+                                      
+                                            
+                                              active-action="action-friends"
+                                                >
+                                                  <i class='fa-solid fa-link fa-fw'></i>
+                                                    友链
+                              </a>
+                              
+                            </li>
+                            
+                              
+                                    
+                                  
+                      
+                            <li>
+                              <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" title="归档" 
+                                
+                                      
+                                            
+                                              active-action="action-archives"
+                                                >
+                                                  <i class='fa-solid fa-archive fa-fw'></i>
+                                                    归档
+                              </a>
+                              
+                            </li>
+                            
+                              
+                                    
+                                  
+                      
+                            <li>
+                              <a class="menuitem flat-box faa-parent animated-hover" href="/about/" title="关于" 
+                                
+                                      
+                                            
+                                              active-action="action-about"
+                                                >
+                                                  <i class='fa fa-info-circle fa-fw'></i>
+                                                    关于
+                              </a>
+                              
+                            </li>
+                            
+                              
+                                    
+                </ul>
+              </div>
               
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/" title="文档"
-                  
-                  
-                  
-                    active-action="action-home"
-                  >
-                  <i class='fa-solid fa-rss fa-fw'></i>文档
-                </a>
+                <div class="m_search">
+                  <form name="searchform" class="form u-search-form">
+                    <i class="icon fa-solid fa-search fa-fw"></i>
+                    <input type="text" class="input u-search-input"
+                      placeholder="Search..." />
+                  </form>
+                </div>
                 
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/categories/" title="分类"
-                  
-                  
-                  
-                    active-action="action-categories"
-                  >
-                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/tags/" title="标签"
-                  
-                  
-                  
-                    active-action="action-tags"
-                  >
-                  <i class='fa-solid fa-tags fa-fw'></i>标签
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/archives/" title="归档"
-                  
-                  
-                  
-                    active-action="action-archives"
-                  >
-                  <i class='fa-solid fa-archive fa-fw'></i>归档
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/friends/" title="友链"
-                  
-                  
-                  
-                    active-action="action-friends"
-                  >
-                  <i class='fa-solid fa-link fa-fw'></i>友链
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/about/" title="关于"
-                  
-                  
-                  
-                    active-action="action-about"
-                  >
-                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
-                </a>
-                
-              </li>
-            
-          
-            
-          </ul>
-        </li>
-			</ul>
 
-      <!-- Custom Files header begin -->
-      
-      <!-- Custom Files header end -->
-		</div>
-	</div>
+                  <ul class='switcher nav-list-h m-phone'>
+                    
+                      <li><a class="s-search fa-solid fa-search fa-fw" target="_self" title="search"></a></li>
+                      
+                        <li>
+                          <a class="s-menu fa-solid fa-bars fa-fw" target="_self" title="menu"></a>
+                          <ul class="menu-phone list-v navigation white-box">
+                            
+                              
+                      
+                            <li>
+                              <a class="menuitem flat-box faa-parent animated-hover" href="/" title="首页" 
+                                
+                                      
+                                            
+                                              active-action="action-home"
+                                                >
+                                                  <i class='fa fa-house fa-fw'></i>
+                                                    首页
+                              </a>
+                              
+                            </li>
+                            
+                              
+                                
+                              
+                      
+                            <li>
+                              <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" title="分类" 
+                                
+                                      
+                                            
+                                              active-action="action-categories"
+                                                >
+                                                  <i class='fa fa-folder-open fa-fw'></i>
+                                                    分类
+                              </a>
+                              
+                            </li>
+                            
+                              
+                                
+                              
+                      
+                            <li>
+                              <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" title="标签" 
+                                
+                                      
+                                            
+                                              active-action="action-tags"
+                                                >
+                                                  <i class='fa-solid fa-tags fa-fw'></i>
+                                                    标签
+                              </a>
+                              
+                            </li>
+                            
+                              
+                                
+                              
+                      
+                            <li>
+                              <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" title="友链" 
+                                
+                                      
+                                            
+                                              active-action="action-friends"
+                                                >
+                                                  <i class='fa-solid fa-link fa-fw'></i>
+                                                    友链
+                              </a>
+                              
+                            </li>
+                            
+                              
+                                
+                              
+                      
+                            <li>
+                              <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" title="归档" 
+                                
+                                      
+                                            
+                                              active-action="action-archives"
+                                                >
+                                                  <i class='fa-solid fa-archive fa-fw'></i>
+                                                    归档
+                              </a>
+                              
+                            </li>
+                            
+                              
+                                
+                              
+                      
+                            <li>
+                              <a class="menuitem flat-box faa-parent animated-hover" href="/about/" title="关于" 
+                                
+                                      
+                                            
+                                              active-action="action-about"
+                                                >
+                                                  <i class='fa fa-info-circle fa-fw'></i>
+                                                    关于
+                              </a>
+                              
+                            </li>
+                            
+                              
+                                
+                          </ul>
+                        </li>
+                  </ul>
+
+                  <!-- Custom Files header begin -->
+                  
+                    <!-- Custom Files header end -->
+      </div>
+    </div>
   </div>
 </header>
-
-    <div id="l_body">
-      <div id="l_cover">
+                      <div id="l_body">
+                        <div id="l_cover">
   
     
-      <div class="cover-wrapper post dock" id='half'>
+      <div class="cover-wrapper post focus" id='half'>
         
-  <div class='cover-bg lazyload placeholder' data-bg="/images/pixiv_works_127338732_p0.png"></div>
+  <div class='cover-bg lazyload placeholder' data-bg="/images/pixiv_works_129805147_p0.png"></div>
 
 <div class='cover-body'>
   <div class='top'>
@@ -2456,50 +2683,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='menu navigation'>
       <div class='list-h'>
         
-          
-            <a href="/"
-              
-              
-              active-action="action-home">
-              <i class='fa fa-house fa-fw'></i><p>首页</p>
-            </a>
-          
-            <a href="/"
-              
-              
-              active-action="action-home">
-              <img src='https://unpkg.com/volantis-static@0.0.1660614606622/media/twemoji/assets/svg/1f516.svg'><p>分类</p>
-            </a>
-          
-            <a href="/"
-              
-              
-              active-action="action-home">
-              <img src='https://unpkg.com/volantis-static@0.0.1660614606622/media/twemoji/assets/svg/1f396.svg'><p>示例</p>
-            </a>
-          
-            <a href="/"
-              
-              
-              active-action="action-home">
-              <img src='https://unpkg.com/volantis-static@0.0.1660614606622/media/twemoji/assets/svg/1f389.svg'><p>社区</p>
-            </a>
-          
-            <a href="/archives/"
-              
-              
-              active-action="action-archives">
-              <img src='https://unpkg.com/volantis-static@0.0.1660614606622/media/twemoji/assets/svg/1f4f0.svg'><p>博客</p>
-            </a>
-          
-            <a href="/about/"
-              
-              
-              active-action="action-about">
-              <img src='https://unpkg.com/volantis-static@0.0.1660614606622/media/twemoji/assets/svg/1f9ec.svg'><p>关于</p>
-            </a>
-          
-        
       </div>
     </div>
   </div>
@@ -2510,9 +2693,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
 </div>
 
-      <div id="safearea">
-        <div class="body-wrapper">
-          
+                          <div id="safearea">
+                            <div class="body-wrapper">
+                              
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
   <link itemprop="mainEntityOfPage" href="https://minu50ne.github.io/2025/04/07/舵轮底盘解算/">
@@ -2773,8 +2956,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-        </div>
-        
+                            </div>
+                            
   
   <footer class="footer clearfix"  itemscope itemtype="http://schema.org/WPFooter">
     <br><br>
@@ -2824,11 +3007,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </footer>
 
 
-        <a id="s-top" class="fa-solid fa-arrow-up fa-fw" title="top"></a>
-      </div>
-    </div>
-    <div>
-      <script>
+                              <a id="s-top" class="fa-solid fa-arrow-up fa-fw" title="top"></a>
+                          </div>
+                      </div>
+                      <div>
+                        <script>
   /******************** volantis.dom ********************************/
   // 页面选择器 将dom对象缓存起来 see: /source/js/app.js etc.
   volantis.dom.bodyAnchor = volantis.dom.$(document.getElementById("safearea")); // 页面主体
@@ -3263,11 +3446,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-    </div>
-    <!-- import body_end begin-->
-    <!-- import body_end end-->
-    <!-- Custom Files bodyEnd begin-->
-    
-    <!-- Custom Files bodyEnd end-->
-  </body>
+                      </div>
+                      <!-- import body_end begin-->
+                                <!-- import body_end end-->
+                                <!-- Custom Files bodyEnd begin-->
+                                
+                                  <!-- Custom Files bodyEnd end-->
+      </body>
+
 </html>
