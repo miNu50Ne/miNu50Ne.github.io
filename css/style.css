@@ -7416,3 +7416,18 @@ pre {
   border-radius: 0 12px 12px 0;
   -webkit-border-radius: 0 12px 12px 0;
 }
+#l_main .post,
+#l_side .widget {
+  opacity: 0.8;
+  -webkit-opacity: 0.8;
+  -moz-opacity: 0.8;
+}
+#post.post,
+#docs.post {
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+}
+.parallax-mirror {
+  filter: brightness(0.5);
+}
